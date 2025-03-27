@@ -1,0 +1,10 @@
+services:
+  borgbackup:
+    restart: unless-stopped
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - '2200:22'
+    volumes:
+      - '/volume2/Borgbackup:/backup'
+      - './authorized_keys:/root/.ssh/authorized_keys'
